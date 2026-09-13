@@ -1,0 +1,703 @@
+/* ============================================================
+   MIX MATEUS — SISTEMA DE GERAÇÃO DE CRACHÁS CORPORATIVO
+   Padrão Apple HIG & Microsoft Fluent 2
+   Tonalidade Oficial Mix Mateus (Midnight Navy & Vermelho Mix)
+   Design Profissional • Sem LEDs • Sem Emojis
+   ============================================================ */
+
+:root {
+    /* Tonalidade Oficial Mix Mateus */
+    --bg-base: #060913;
+    --bg-surface-1: #0b1224;
+    --bg-surface-2: #101a33;
+    --bg-surface-3: #162447;
+    --bg-input: #080d1a;
+
+    --border-subtle: rgba(59, 130, 246, 0.12);
+    --border-card: rgba(59, 130, 246, 0.20);
+    --border-hover: rgba(227, 6, 19, 0.40);
+
+    /* Cores Corporativas Mix Mateus */
+    --mix-red: #e30613;
+    --mix-red-hover: #c90510;
+    --mix-red-glow: rgba(227, 6, 19, 0.25);
+    --mix-blue: #1d4ed8;
+    --mix-blue-hover: #1e40af;
+    --mix-navy: #002d72;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --green-accent: #10b981;
+
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-full: 9999px;
+}
+
+/* Reset Global */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-base);
+    background-image: 
+        radial-gradient(ellipse at 50% 0%, rgba(29, 78, 216, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(227, 6, 19, 0.04) 0%, transparent 50%);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 90px;
+}
+
+/* 1. Header Corporativo (Apple Frosted Glass com Logo Central) */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(6, 9, 19, 0.86);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-card);
+    padding: 10px 24px;
+}
+
+.header-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.brand-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.header-logo-img {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-divider {
+    width: 1px;
+    height: 26px;
+    background: var(--border-card);
+}
+
+.brand-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.brand-subtitle {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Pílula de Marca Centralizada no Header */
+.header-center-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(16, 26, 51, 0.85);
+    padding: 5px 18px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-card);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.header-center-logo-box {
+    width: 28px;
+    height: 28px;
+    background: #ffffff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+}
+
+.header-center-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.header-center-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+}
+
+.header-tags {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--green-accent);
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.status-indicator {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--green-accent);
+}
+
+.badge-tag {
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--bg-surface-2);
+    border: 1px solid var(--border-subtle);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.creator-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.74rem;
+    color: #f37021;
+    background: rgba(243, 112, 33, 0.08);
+    border: 1px solid rgba(243, 112, 33, 0.2);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+/* 2. Container Principal */
+.app-main {
+    max-width: 1240px;
+    width: 100%;
+    margin: 22px auto 0;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+/* Cards (Microsoft Fluent 2) */
+.card {
+    background: var(--bg-surface-1);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+/* Card de Upload */
+.upload-card {
+    padding: 22px 26px;
+}
+
+.upload-zone-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.upload-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: rgba(227, 6, 19, 0.12);
+    border: 1px solid rgba(227, 6, 19, 0.28);
+    color: var(--mix-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.upload-text-content {
+    flex: 1;
+    min-width: 250px;
+}
+
+.upload-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.upload-desc {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+}
+
+.upload-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.shortcuts-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.system-shortcut-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-surface-2);
+    border: 1px solid var(--border-card);
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.system-shortcut-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+    background: var(--bg-surface-3);
+    transform: translateY(-1px);
+}
+
+.shortcut-icon-img {
+    height: 16px;
+    width: auto;
+    object-fit: contain;
+}
+
+.shortcut-arrow {
+    opacity: 0.6;
+    transition: transform 0.2s ease;
+}
+
+.system-shortcut-btn:hover .shortcut-arrow {
+    opacity: 1;
+    transform: translate(1px, -1px);
+}
+
+.status-msg {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* Botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary {
+    background: var(--mix-red);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-primary:hover {
+    background: var(--mix-red-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(227, 6, 19, 0.4);
+}
+
+.btn-mix-main {
+    background: var(--mix-red);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+}
+
+.btn-mix-main:hover {
+    background: var(--mix-red-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 18px rgba(227, 6, 19, 0.45);
+}
+
+/* 3. Filtro e Métricas */
+.filter-card {
+    padding: 20px 24px;
+}
+
+.filter-header {
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: 180px 180px 1fr;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.input-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-field-group label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.input-wrapper input {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-sm);
+    padding: 9px 12px;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.input-wrapper input:focus {
+    border-color: var(--mix-blue);
+    box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2);
+}
+
+.summary-grid {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.summary-item {
+    background: var(--bg-surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+    text-align: right;
+}
+
+.summary-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.summary-val {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+}
+
+/* 4. Tabela de Prévia e Hero Central */
+.table-card {
+    padding: 20px 24px;
+}
+
+.table-header-title {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    min-height: 260px;
+}
+
+/* Empty State / Hero Central no Centro do Aplicativo */
+.empty-hero-box {
+    padding: 52px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-logo-card {
+    width: 140px;
+    height: 140px;
+    background: #ffffff;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-logo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(227, 6, 19, 0.3), 0 0 0 1px rgba(227, 6, 19, 0.4);
+}
+
+.hero-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.empty-hero-title {
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.empty-hero-subtitle {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    max-width: 440px;
+    line-height: 1.5;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+}
+
+th {
+    background: #0e1830;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-card);
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+}
+
+tr:hover td {
+    background: rgba(37, 99, 235, 0.04);
+}
+
+.center {
+    text-align: center;
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-accent {
+    color: var(--mix-red);
+}
+
+/* 5. Dock Inferior Fixo */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    background: rgba(6, 9, 19, 0.90);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border-card);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.support-widget {
+    position: absolute;
+    right: 24px;
+}
+
+.support-card-box {
+    position: relative;
+    width: 72px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--border-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.sergipe-flag-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.support-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+    z-index: 2;
+}
+
+.support-btn-icon {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.support-btn-icon:hover {
+    transform: scale(1.18);
+}
+
+/* Drag Overlay */
+#drag-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 9, 19, 0.94);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#drag-overlay.active {
+    display: flex;
+}
+
+.drag-overlay-box {
+    border: 2px dashed var(--mix-red);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    text-align: center;
+    background: var(--bg-surface-1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.drag-icon-wrapper {
+    color: var(--mix-red);
+    margin-bottom: 16px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .filter-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .summary-grid {
+        grid-column: span 2;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-center-pill {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .upload-zone-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .upload-action-btn {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+    .summary-grid {
+        grid-column: span 1;
+        flex-direction: column;
+    }
+    footer {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .support-widget {
+        position: static;
+    }
+}

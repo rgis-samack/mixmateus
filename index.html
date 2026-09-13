@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mix Mateus - Samack D697</title>
+    
+    <!-- Google Fonts: Inter & JetBrains Mono para tipografia corporativa -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bibliotecas JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="app_logo.ico">
+</head>
+<body>
+
+    <!-- Overlay de Drag and Drop Minimalista -->
+    <div id="drag-overlay">
+        <div class="drag-overlay-box">
+            <div class="drag-icon-wrapper">
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+            </div>
+            <h2>Solte o arquivo consolidado aqui</h2>
+            <p>Suporta Consolidado_506.csv, arquivos .xlsx ou .xls do Mix Mateus</p>
+        </div>
+    </div>
+
+    <!-- 1. Header Corporativo (Padrão Apple Frosted Glass com Logo Central) -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand-group">
+                <img src="2138138.png" alt="RGIS Logo" class="header-logo-img">
+                <div class="brand-divider"></div>
+                <div class="brand-text-container">
+                    <h1 class="brand-title">Gerador de Crachás</h1>
+                    <div class="brand-subtitle">Mix Mateus • Inventário D697</div>
+                </div>
+            </div>
+
+            <!-- Logo Mix Mateus Centralizado no Topo -->
+            <div class="header-center-pill">
+                <div class="header-center-logo-box">
+                    <img src="logo mix.png" alt="Mix Mateus" class="header-center-logo">
+                </div>
+                <span class="header-center-label">MIX MATEUS</span>
+            </div>
+
+            <div class="header-tags">
+                <span class="status-badge">
+                    <span class="status-indicator"></span>
+                    Sistema Operacional
+                </span>
+                <span class="badge-tag">Modelo Oficial Mix Mateus</span>
+                <div class="creator-badge" title="Automação de Inventário RGIS">
+                    <span class="creator-text">D697 • <b>Samack</b></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <!-- 2. Card de Upload (Design Limpo & Intuitivo) -->
+        <section class="card upload-card">
+            <div class="upload-zone-wrapper">
+                <div class="upload-icon-circle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                        <polyline points="9 15 12 12 15 15"></polyline>
+                    </svg>
+                </div>
+                <div class="upload-text-content">
+                    <h2 class="upload-title">Arquivo Consolidado</h2>
+                    <p class="upload-desc">Selecione ou arraste o arquivo <b>Consolidado_506.csv</b> ou planilha <b>Excel (.xlsx / .xls)</b></p>
+                </div>
+                <div class="upload-action-btn">
+                    <input type="file" id="file-input" accept=".csv, .xlsx, .xlsm, .xls" style="display: none;">
+                    
+                    <!-- Atalhos Corporativos de Integração -->
+                    <div class="shortcuts-group">
+                        <a href="https://rgis-samack.github.io/assai/" target="_blank" rel="noopener noreferrer" class="system-shortcut-btn shortcut-assai" title="Acessar Sistema Assaí Atacadista (Nova Aba)">
+                            <span class="shortcut-text">Assaí</span>
+                            <svg class="shortcut-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                        <a href="https://rgis-samack.github.io/samsclub/" target="_blank" rel="noopener noreferrer" class="system-shortcut-btn shortcut-sams" title="Acessar Sistema Sam's Club (Nova Aba)">
+                            <img src="sams_icon.png" alt="Sam's Club" class="shortcut-icon-img">
+                            <span class="shortcut-text">Sam's Club</span>
+                            <svg class="shortcut-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </div>
+
+                    <button class="btn btn-primary btn-upload-lg" id="btn-file-select">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span>Selecionar Arquivo</span>
+                    </button>
+                </div>
+            </div>
+            <div id="status-text" class="status-msg">Aguardando arquivo Consolidado_506.csv...</div>
+        </section>
+
+        <!-- 3. Painel de Controle e Filtros de Área (Microsoft Fluent Style) -->
+        <section class="card filter-card">
+            <div class="filter-header">
+                <div class="section-title">
+                    <span>Filtro de Áreas & Métricas do Lote</span>
+                </div>
+            </div>
+            
+            <div class="filter-grid">
+                <div class="input-field-group">
+                    <label for="input-inicio">Área Inicial</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="input-inicio" placeholder="Ex: 60" min="0">
+                    </div>
+                </div>
+
+                <div class="input-field-group">
+                    <label for="input-fim">Área Final</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="input-fim" placeholder="Ex: 500" min="0">
+                    </div>
+                </div>
+
+                <!-- Métricas do Lote -->
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <span class="summary-label">Total de Itens</span>
+                        <span class="summary-val" id="val-total-itens">0 itens</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Total de Áreas</span>
+                        <span class="summary-val" id="val-total-areas">0 Áreas</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Páginas A4</span>
+                        <span class="summary-val" id="val-pags-total">0 págs A4</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Tabela de Dados e Visualização -->
+        <section class="card table-card">
+            <div class="table-header-title">
+                <span>Prévia dos Dados (Ordenados por Área)</span>
+            </div>
+            <div class="table-responsive">
+                <!-- Empty State Limpo e Institucional no Centro do Aplicativo -->
+                <div id="empty-state-container" class="empty-hero-box">
+                    <div class="hero-logo-card">
+                        <img src="logo mix.png" alt="Mix Mateus" class="hero-logo-img">
+                    </div>
+                    <div class="empty-hero-title">Nenhum dado carregado</div>
+                    <p class="empty-hero-subtitle">Faça o upload do arquivo <b>Consolidado_506.csv</b> ou planilha Excel para visualizar os crachás</p>
+                </div>
+
+                <table id="data-table" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th style="width: 90px;" class="center">Área</th>
+                            <th style="width: 120px;" class="center">SKU</th>
+                            <th style="width: 170px;" class="center">Cód. Barras</th>
+                            <th>Descrição do Produto</th>
+                            <th style="width: 110px;" class="center">Quantidade</th>
+                            <th style="width: 130px;" class="center">Data Contagem</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- 5. Rodapé Fixo de Ações (Dock Apple Style) -->
+    <footer>
+        <button id="btn-gerar-mix" class="btn btn-mix-main">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Gerar Crachás Mix Mateus (A4 Paisagem)</span>
+        </button>
+
+        <!-- Widget de Suporte Sóbrio -->
+        <div class="support-widget">
+            <div class="support-card-box">
+                <!-- Bandeira de Sergipe Oficial (Vetor Limpo) -->
+                <div class="sergipe-flag-bg">
+                    <svg viewBox="0 0 100 64" width="100%" height="100%" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100" height="16" y="0" fill="#008037"/>
+                        <rect width="100" height="16" y="16" fill="#fedf00"/>
+                        <rect width="100" height="16" y="32" fill="#008037"/>
+                        <rect width="100" height="16" y="48" fill="#fedf00"/>
+                        <rect width="42" height="32" x="0" y="0" fill="#002776"/>
+                        <polygon points="21,11 22.5,14.5 26,14.5 23.2,16.8 24.2,20.2 21,18 17.8,20.2 18.8,16.8 16,14.5 19.5,14.5" fill="#ffffff"/>
+                        <polygon points="21,3 22,5.5 24.5,5.5 22.5,7 23.2,9.5 21,8 18.8,9.5 19.5,7 17.5,5.5 20,5.5" fill="#ffffff"/>
+                        <polygon points="21,21 22,23.5 24.5,23.5 22.5,25 23.2,27.5 21,26 18.8,27.5 19.5,25 17.5,23.5 20,23.5" fill="#ffffff"/>
+                        <polygon points="10,12 11,14.5 13.5,14.5 11.5,16 12.2,18.5 10,17 7.8,18.5 8.5,16 6.5,14.5 9,14.5" fill="#ffffff"/>
+                        <polygon points="32,12 33,14.5 35.5,14.5 33.5,16 34.2,18.5 32,17 29.8,18.5 30.5,16 28.5,14.5 31,14.5" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <div class="support-overlay"></div>
+                <!-- WhatsApp -->
+                <a href="https://wa.me/5579988694943?text=Oi%2C%20Samack%20!%20Estou%20em%20loja%20no%20invent%C3%A1rio%20do%20Mix%20Mateus%20e%20tive%20uma%20d%C3%BAvida%20para%20gerar%20os%20crach%C3%A1s.%20Pode%20me%20dar%20um%20suporte%3F" target="_blank" rel="noopener noreferrer" class="support-btn-icon support-wa" title="WhatsApp Suporte: (79) 98869-4943">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.32C16.92 14.75 16.92 14.27 16.86 14.16C16.8 14.05 16.64 13.99 16.4 13.87C16.16 13.75 14.99 13.17 14.77 13.1C14.55 13.02 14.39 12.98 14.23 13.22C14.07 13.47 13.61 14.05 13.47 14.21C13.33 14.37 13.19 14.39 12.95 14.27C12.71 14.15 11.94 13.9 11.02 13.08C10.3 12.44 9.81 11.65 9.67 11.41C9.53 11.17 9.65 11.04 9.77 10.92C9.88 10.81 10.02 10.63 10.14 10.49C10.26 10.35 10.3 10.25 10.38 10.09C10.46 9.93 10.42 9.79 10.36 9.67C10.3 9.55 9.84 8.41 9.65 7.95C9.46 7.5 9.27 7.56 9.13 7.55C9 7.55 8.84 7.55 8.68 7.55"/>
+                    </svg>
+                </a>
+                <!-- Instagram -->
+                <a href="https://instagram.com/felipe.samack" target="_blank" rel="noopener noreferrer" class="support-btn-icon support-ig" title="Instagram: @felipe.samack">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
