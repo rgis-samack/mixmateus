@@ -1,40 +1,41 @@
 /* ============================================================
    MIX MATEUS — SISTEMA DE GERAÇÃO DE CRACHÁS CORPORATIVO
-   Padrão Apple HIG & Microsoft Fluent 2
-   Tonalidade Oficial Mix Mateus (Midnight Navy & Vermelho Mix)
-   Design Profissional • Sem LEDs • Sem Emojis
+   Padrão Apple HIG & Microsoft Fluent 2 (Light Enterprise Theme)
+   Identidade Oficial Mix Mateus: Branco, Vermelho (#E30613) e Azul (#002D72)
+   Zero Néon • Sem Emojis • Animação Orgânica da Logo Central
    ============================================================ */
 
 :root {
-    /* Tonalidade Oficial Mix Mateus */
-    --bg-base: #060913;
-    --bg-surface-1: #0b1224;
-    --bg-surface-2: #101a33;
-    --bg-surface-3: #162447;
-    --bg-input: #080d1a;
+    /* Paleta Oficial Mix Mateus (Tema Claro / White Enterprise) */
+    --bg-base: #f4f6fa;
+    --bg-surface-1: #ffffff;
+    --bg-surface-2: #f8fafc;
+    --bg-surface-3: #f1f5f9;
+    --bg-input: #ffffff;
 
-    --border-subtle: rgba(59, 130, 246, 0.12);
-    --border-card: rgba(59, 130, 246, 0.20);
-    --border-hover: rgba(227, 6, 19, 0.40);
+    --border-subtle: rgba(0, 45, 114, 0.08);
+    --border-card: rgba(0, 45, 114, 0.13);
+    --border-hover: rgba(227, 6, 19, 0.35);
 
-    /* Cores Corporativas Mix Mateus */
+    /* Cores de Marca Mix Mateus */
     --mix-red: #e30613;
     --mix-red-hover: #c90510;
     --mix-red-glow: rgba(227, 6, 19, 0.25);
+    --mix-navy: #002d72;
+    --mix-navy-hover: #001f52;
     --mix-blue: #1d4ed8;
     --mix-blue-hover: #1e40af;
-    --mix-navy: #002d72;
 
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
     --text-muted: #64748b;
-    --green-accent: #10b981;
+    --green-accent: #059669;
 
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --radius-sm: 6px;
     --radius-md: 10px;
-    --radius-lg: 14px;
+    --radius-lg: 16px;
     --radius-full: 9999px;
 }
 
@@ -48,8 +49,8 @@
 body {
     background-color: var(--bg-base);
     background-image: 
-        radial-gradient(ellipse at 50% 0%, rgba(29, 78, 216, 0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 100%, rgba(227, 6, 19, 0.04) 0%, transparent 50%);
+        radial-gradient(ellipse at 50% 0%, rgba(0, 45, 114, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(227, 6, 19, 0.03) 0%, transparent 50%);
     color: var(--text-primary);
     font-family: var(--font-main);
     line-height: 1.5;
@@ -58,19 +59,20 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-bottom: 90px;
+    padding-bottom: 96px;
 }
 
-/* 1. Header Corporativo (Apple Frosted Glass com Logo Central) */
+/* 1. Header Corporativo (Apple Frosted Glass Claro) */
 .app-header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(6, 9, 19, 0.86);
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-card);
     padding: 10px 24px;
+    box-shadow: 0 2px 12px rgba(0, 45, 114, 0.04);
 }
 
 .header-container {
@@ -107,8 +109,8 @@ body {
 
 .brand-title {
     font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-weight: 700;
+    color: var(--mix-navy);
     letter-spacing: -0.01em;
 }
 
@@ -118,27 +120,28 @@ body {
     font-weight: 500;
 }
 
-/* Pílula de Marca Centralizada no Header */
+/* Pílula Central da Marca Mix Mateus */
 .header-center-pill {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(16, 26, 51, 0.85);
-    padding: 5px 18px;
+    background: rgba(0, 45, 114, 0.04);
+    padding: 5px 16px;
     border-radius: var(--radius-full);
     border: 1px solid var(--border-card);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 2px 6px rgba(0, 45, 114, 0.04);
 }
 
 .header-center-logo-box {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     background: #ffffff;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .header-center-logo {
@@ -151,7 +154,7 @@ body {
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: #ffffff;
+    color: var(--mix-navy);
 }
 
 .header-tags {
@@ -165,10 +168,10 @@ body {
     align-items: center;
     gap: 6px;
     font-size: 0.74rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--green-accent);
-    background: rgba(16, 185, 129, 0.08);
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    background: rgba(5, 150, 105, 0.08);
+    border: 1px solid rgba(5, 150, 105, 0.2);
     padding: 4px 10px;
     border-radius: var(--radius-full);
 }
@@ -182,10 +185,10 @@ body {
 
 .badge-tag {
     font-size: 0.74rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    font-weight: 600;
+    color: var(--mix-navy);
     background: var(--bg-surface-2);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid var(--border-card);
     padding: 4px 10px;
     border-radius: var(--radius-full);
 }
@@ -194,9 +197,9 @@ body {
     display: inline-flex;
     align-items: center;
     font-size: 0.74rem;
-    color: #f37021;
-    background: rgba(243, 112, 33, 0.08);
-    border: 1px solid rgba(243, 112, 33, 0.2);
+    color: #ea580c;
+    background: rgba(234, 88, 12, 0.08);
+    border: 1px solid rgba(234, 88, 12, 0.2);
     padding: 4px 10px;
     border-radius: var(--radius-full);
 }
@@ -213,12 +216,12 @@ body {
     flex: 1;
 }
 
-/* Cards (Microsoft Fluent 2) */
+/* Cards (Microsoft Fluent 2 Claro) */
 .card {
     background: var(--bg-surface-1);
     border: 1px solid var(--border-card);
     border-radius: var(--radius-lg);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 45, 114, 0.05);
     overflow: hidden;
 }
 
@@ -239,8 +242,8 @@ body {
     width: 48px;
     height: 48px;
     border-radius: var(--radius-md);
-    background: rgba(227, 6, 19, 0.12);
-    border: 1px solid rgba(227, 6, 19, 0.28);
+    background: rgba(227, 6, 19, 0.08);
+    border: 1px solid rgba(227, 6, 19, 0.2);
     color: var(--mix-red);
     display: flex;
     align-items: center;
@@ -255,8 +258,8 @@ body {
 
 .upload-title {
     font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-weight: 700;
+    color: var(--mix-navy);
     margin-bottom: 2px;
 }
 
@@ -277,10 +280,11 @@ body {
     gap: 8px;
 }
 
+/* Atalho Corporativo Assaí */
 .system-shortcut-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     background: var(--bg-surface-2);
     border: 1px solid var(--border-card);
     padding: 8px 14px;
@@ -288,19 +292,20 @@ body {
     text-decoration: none;
     color: var(--text-secondary);
     font-size: 0.82rem;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.2s ease;
 }
 
 .system-shortcut-btn:hover {
-    color: var(--text-primary);
-    border-color: var(--border-hover);
+    color: var(--mix-navy);
+    border-color: rgba(0, 45, 114, 0.3);
     background: var(--bg-surface-3);
     transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 45, 114, 0.08);
 }
 
 .shortcut-icon-img {
-    height: 16px;
+    height: 18px;
     width: auto;
     object-fit: contain;
 }
@@ -331,7 +336,7 @@ body {
     gap: 8px;
     font-family: var(--font-main);
     font-size: 0.88rem;
-    font-weight: 500;
+    font-weight: 600;
     padding: 10px 18px;
     border-radius: var(--radius-md);
     border: 1px solid transparent;
@@ -342,28 +347,31 @@ body {
 .btn-primary {
     background: var(--mix-red);
     color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(227, 6, 19, 0.25);
 }
 
 .btn-primary:hover {
     background: var(--mix-red-hover);
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(227, 6, 19, 0.4);
+    box-shadow: 0 4px 14px rgba(227, 6, 19, 0.35);
 }
 
 .btn-mix-main {
     background: var(--mix-red);
     color: #ffffff;
-    font-weight: 600;
-    padding: 12px 28px;
+    font-weight: 700;
+    padding: 13px 32px;
     border-radius: var(--radius-md);
-    font-size: 0.95rem;
+    font-size: 0.96rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 16px rgba(227, 6, 19, 0.32);
 }
 
 .btn-mix-main:hover {
     background: var(--mix-red-hover);
     transform: translateY(-1px);
-    box-shadow: 0 4px 18px rgba(227, 6, 19, 0.45);
+    box-shadow: 0 6px 22px rgba(227, 6, 19, 0.42);
 }
 
 /* 3. Filtro e Métricas */
@@ -376,9 +384,9 @@ body {
 }
 
 .section-title {
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--mix-navy);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -398,26 +406,26 @@ body {
 
 .input-field-group label {
     font-size: 0.78rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-secondary);
 }
 
 .input-wrapper input {
     width: 100%;
     background: var(--bg-input);
-    border: 1px solid var(--border-card);
+    border: 1px solid #cbd5e1;
     border-radius: var(--radius-sm);
     padding: 9px 12px;
     color: var(--text-primary);
     font-family: var(--font-mono);
     font-size: 0.88rem;
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .input-wrapper input:focus {
-    border-color: var(--mix-blue);
-    box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2);
+    border-color: var(--mix-navy);
+    box-shadow: 0 0 0 3px rgba(0, 45, 114, 0.12);
 }
 
 .summary-grid {
@@ -428,19 +436,20 @@ body {
 
 .summary-item {
     background: var(--bg-surface-2);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid var(--border-card);
     border-radius: var(--radius-md);
     padding: 10px 16px;
     display: flex;
     flex-direction: column;
     min-width: 120px;
     text-align: right;
+    box-shadow: 0 1px 4px rgba(0, 45, 114, 0.03);
 }
 
 .summary-label {
     font-size: 0.72rem;
     color: var(--text-muted);
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
@@ -448,7 +457,7 @@ body {
 .summary-val {
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--mix-navy);
     font-family: var(--font-mono);
 }
 
@@ -458,9 +467,9 @@ body {
 }
 
 .table-header-title {
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--mix-navy);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 14px;
@@ -468,17 +477,33 @@ body {
 
 .table-responsive {
     overflow-x: auto;
-    min-height: 260px;
+    min-height: 280px;
 }
 
 /* Empty State / Hero Central no Centro do Aplicativo */
 .empty-hero-box {
-    padding: 52px 24px;
+    padding: 56px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+/* Card da Logo Central com Animação Orgânica Mix Mateus */
+@keyframes mixFloatPulse {
+    0% {
+        transform: translateY(0px) scale(1);
+        box-shadow: 0 8px 24px rgba(0, 45, 114, 0.12), 0 0 0 1px rgba(0, 45, 114, 0.08);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 16px 36px rgba(227, 6, 19, 0.18), 0 0 0 2px rgba(227, 6, 19, 0.22);
+    }
+    100% {
+        transform: translateY(0px) scale(1);
+        box-shadow: 0 8px 24px rgba(0, 45, 114, 0.12), 0 0 0 1px rgba(0, 45, 114, 0.08);
+    }
 }
 
 .hero-logo-card {
@@ -490,14 +515,20 @@ body {
     align-items: center;
     justify-content: center;
     padding: 16px;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 22px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 45, 114, 0.12), 0 0 0 1px rgba(0, 45, 114, 0.08);
 }
 
-.hero-logo-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 36px rgba(227, 6, 19, 0.3), 0 0 0 1px rgba(227, 6, 19, 0.4);
+.animated-mix-logo {
+    animation: mixFloatPulse 3.6s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animated-mix-logo:hover {
+    animation-play-state: paused;
+    transform: translateY(-10px) scale(1.06);
+    box-shadow: 0 20px 45px rgba(227, 6, 19, 0.26), 0 0 0 2px var(--mix-red);
 }
 
 .hero-logo-img {
@@ -508,15 +539,15 @@ body {
 
 .empty-hero-title {
     font-size: 1.12rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-weight: 700;
+    color: var(--mix-navy);
     margin-bottom: 6px;
 }
 
 .empty-hero-subtitle {
     font-size: 0.86rem;
     color: var(--text-secondary);
-    max-width: 440px;
+    max-width: 460px;
     line-height: 1.5;
 }
 
@@ -527,25 +558,29 @@ table {
 }
 
 th {
-    background: #0e1830;
-    color: var(--text-secondary);
+    background: var(--mix-navy);
+    color: #ffffff;
     font-weight: 600;
     text-align: left;
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--border-card);
+    padding: 11px 14px;
+    border-bottom: 2px solid var(--mix-red);
     font-size: 0.76rem;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
 }
 
 td {
     padding: 11px 14px;
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-card);
     color: var(--text-primary);
 }
 
+tr:nth-child(even) td {
+    background: rgba(0, 45, 114, 0.015);
+}
+
 tr:hover td {
-    background: rgba(37, 99, 235, 0.04);
+    background: rgba(0, 45, 114, 0.04);
 }
 
 .center {
@@ -571,7 +606,7 @@ footer {
     left: 0;
     right: 0;
     z-index: 40;
-    background: rgba(6, 9, 19, 0.90);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid var(--border-card);
@@ -579,6 +614,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 -4px 20px rgba(0, 45, 114, 0.06);
 }
 
 .support-widget {
@@ -597,6 +633,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sergipe-flag-bg {
@@ -608,7 +645,7 @@ footer {
 .support-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.52);
+    background: rgba(0, 0, 0, 0.42);
     z-index: 2;
 }
 
@@ -629,7 +666,7 @@ footer {
 #drag-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(6, 9, 19, 0.94);
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(8px);
     z-index: 100;
     display: none;
@@ -646,8 +683,8 @@ footer {
     border-radius: var(--radius-lg);
     padding: 48px;
     text-align: center;
-    background: var(--bg-surface-1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    background: #ffffff;
+    box-shadow: 0 10px 40px rgba(0, 45, 114, 0.15);
 }
 
 .drag-icon-wrapper {
