@@ -59,7 +59,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-bottom: 96px;
+    padding-bottom: 74px;
     user-select: none;
     -webkit-user-select: none;
 }
@@ -210,11 +210,11 @@ body {
 .app-main {
     max-width: 1240px;
     width: 100%;
-    margin: 22px auto 0;
+    margin: 14px auto 0;
     padding: 0 24px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
     flex: 1;
 }
 
@@ -229,7 +229,7 @@ body {
 
 /* Card de Upload */
 .upload-card {
-    padding: 22px 26px;
+    padding: 16px 22px;
 }
 
 .upload-zone-wrapper {
@@ -378,11 +378,11 @@ body {
 
 /* 3. Filtro e Métricas */
 .filter-card {
-    padding: 20px 24px;
+    padding: 16px 22px;
 }
 
 .filter-header {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .section-title {
@@ -465,7 +465,7 @@ body {
 
 /* 4. Tabela de Prévia e Hero Central */
 .table-card {
-    padding: 20px 24px;
+    padding: 16px 22px;
 }
 
 .table-header-title {
@@ -474,15 +474,15 @@ body {
     color: var(--mix-navy);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 .table-responsive {
     width: 100%;
     overflow-x: auto;
     overflow-y: auto;
-    max-height: 520px;
-    min-height: 320px;
+    max-height: 480px;
+    min-height: 220px;
     border: 1px solid var(--border-card);
     border-radius: var(--radius-md);
     background-color: var(--bg-surface-1);
@@ -511,55 +511,45 @@ body {
 }
 
 /* Empty State / Hero Central no Centro do Aplicativo */
+@keyframes mixFloatPulse {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.96;
+    }
+    50% {
+        transform: translateY(-8px) scale(1.02);
+        opacity: 1;
+    }
+}
+
 .empty-hero-box {
-    padding: 32px 20px 36px 20px;
+    padding: 18px 16px 18px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
-}
-
-/* Card da Logo Central com Animação Orgânica Mix Mateus */
-@keyframes mixFloatPulse {
-    0% {
-        transform: translateY(0px) scale(1);
-        box-shadow: 0 8px 24px rgba(0, 45, 114, 0.12), 0 0 0 1px rgba(0, 45, 114, 0.08);
-    }
-    50% {
-        transform: translateY(-8px) scale(1.03);
-        box-shadow: 0 16px 36px rgba(227, 6, 19, 0.18), 0 0 0 2px rgba(227, 6, 19, 0.22);
-    }
-    100% {
-        transform: translateY(0px) scale(1);
-        box-shadow: 0 8px 24px rgba(0, 45, 114, 0.12), 0 0 0 1px rgba(0, 45, 114, 0.08);
-    }
+    animation: mixFloatPulse 3.5s ease-in-out infinite;
 }
 
 .hero-logo-card {
-    width: 116px;
-    height: 116px;
+    width: 90px;
+    height: 90px;
     background: #ffffff;
-    border-radius: 24px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 14px;
-    margin: 0 auto 16px auto;
-    cursor: pointer;
-    box-shadow: 0 8px 24px rgba(0, 45, 114, 0.12), 0 0 0 1px rgba(0, 45, 114, 0.08);
-}
-
-.animated-mix-logo {
-    animation: mixFloatPulse 3.6s ease-in-out infinite;
+    padding: 10px;
+    margin: 0 auto 12px auto;
+    box-shadow: 0 6px 20px rgba(0, 45, 114, 0.10), 0 0 0 1px rgba(0, 45, 114, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.animated-mix-logo:hover {
-    animation-play-state: paused;
-    transform: translateY(-10px) scale(1.06);
-    box-shadow: 0 20px 45px rgba(227, 6, 19, 0.26), 0 0 0 2px var(--mix-red);
+.hero-logo-card:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 16px 36px rgba(227, 6, 19, 0.22), 0 0 0 2px var(--mix-red);
 }
 
 .hero-logo-img {
@@ -569,10 +559,11 @@ body {
 }
 
 .empty-hero-title {
-    font-size: 1.12rem;
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 800;
     color: var(--mix-navy);
-    margin-bottom: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .empty-hero-subtitle {
