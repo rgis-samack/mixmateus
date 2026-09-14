@@ -185,6 +185,14 @@
 
     <!-- 5. Rodapé Fixo de Ações (Dock Apple Style) -->
     <footer>
+        <!-- Link Discreto para Termos de Uso & Licença Comercial -->
+        <button type="button" id="btn-abrir-termos" class="btn-terms-link" title="Consultar Termos de Uso, Propriedade Intelectual e Licença Comercial">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Termos & Licença</span>
+        </button>
+
         <button id="btn-gerar-mix" class="btn btn-mix-main">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -241,6 +249,72 @@
             </div>
         </div>
     </footer>
+
+    <!-- 6. Modal Corporativo de Termos de Uso & Licenciamento Comercial -->
+    <div id="modal-termos" class="modal-backdrop">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <div class="modal-shield-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="modal-title">Propriedade Intelectual & Licença Comercial</h3>
+                        <div class="modal-subtitle">Mix Mateus D697 • Titular: Felipe Samack</div>
+                    </div>
+                </div>
+                <button type="button" id="btn-fechar-termos" class="modal-close-btn" aria-label="Fechar">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="legal-badge-banner">
+                    <span class="legal-badge-pill">Uso Pessoal Permitido</span>
+                    <span class="legal-badge-pill danger">Vedado Uso Empresarial sem Licença</span>
+                    <span class="legal-badge-pill law">Leis 9.609/98 e 9.610/98</span>
+                </div>
+
+                <div class="modal-text-content">
+                    <h4>1. Titularidade Exclusiva</h4>
+                    <p>Todos os direitos autorais, lógica algorítmica, diagramação de crachás A4, rotinas de PDF e código-fonte deste software pertencem com exclusividade a <b>Felipe Samack (Samack D697)</b>.</p>
+
+                    <h4>2. Licença Não Comercial</h4>
+                    <p>O uso deste software é concedido em caráter estritamente pessoal e operacional para inventariantes individuais. É proibida a descompilação, cópia, engenharia reversa ou remoção de assinaturas e marcas d'água <b>"by Samack 697"</b>.</p>
+
+                    <h4>3. Vedação a Redes e Sistemas Corporativos</h4>
+                    <p>É expressamente proibido a redes varejistas, atacadistas, empresas de auditoria, ERPs ou desenvolvedoras de software incorporar esta automação, métodos ou layout aos seus sistemas corporativos sem prévio contrato comercial.</p>
+
+                    <h4>4. Canal Obrigatório de Notificação & Negociação Comercial</h4>
+                    <p>Empresas interessadas em implementar, customizar ou integrar esta tecnologia em suas operações <b>devem obrigatoriamente notificar o desenvolvedor</b> para abertura de negociação comercial formal:</p>
+
+                    <div class="legal-contact-card">
+                        <div class="legal-contact-info">
+                            <span class="legal-contact-label">Contato Oficial do Autor / Negociação Comercial:</span>
+                            <span class="legal-contact-email">felipesamackofficial@gmail.com</span>
+                        </div>
+                        <a href="mailto:felipesamackofficial@gmail.com?subject=Negociacao%20Comercial%20-%20Sistema%20de%20Crachas%20Mix%20Mateus&body=Ola%20Felipe%20Samack%2C%0A%0ATemos%20interesse%20em%20negociar%20a%20implementacao%20da%20sua%20tecnologia%20de%20crachas%20de%20inventario%20em%20nossa%20empresa.%0A%0AAguardo%20seu%20retorno." class="btn-legal-contact">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>Iniciar Negociação</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <span class="modal-footer-copy">Protegido por Direitos Autorais © 2026 • Felipe Samack</span>
+                <button type="button" id="btn-entendi-termos" class="btn btn-primary btn-sm">Entendi e Concordo</button>
+            </div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>

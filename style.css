@@ -60,6 +60,8 @@ body {
     display: flex;
     flex-direction: column;
     padding-bottom: 96px;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* 1. Header Corporativo (Apple Frosted Glass Claro) */
@@ -764,6 +766,261 @@ footer {
 .support-ig:hover {
     transform: scale(1.15);
     box-shadow: 0 4px 14px rgba(220, 39, 67, 0.6);
+}
+
+/* 6. Botão de Termos & Licença no Dock */
+.btn-terms-link {
+    position: absolute;
+    left: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #ffffff;
+    border: 1px solid var(--border-card);
+    color: var(--mix-navy);
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 9px 14px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 45, 114, 0.05);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.02em;
+}
+
+.btn-terms-link:hover {
+    background: var(--bg-surface-3);
+    border-color: var(--mix-navy);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 45, 114, 0.12);
+}
+
+/* 7. Modal Corporativo de Termos de Uso & Licença Comercial */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.modal-backdrop.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-dialog {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-card);
+    box-shadow: 0 24px 60px rgba(0, 45, 114, 0.25);
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+    from {
+        transform: scale(0.95) translateY(12px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8fafc;
+}
+
+.modal-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-shield-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(0, 45, 114, 0.08);
+    color: var(--mix-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.modal-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--mix-navy);
+}
+
+.modal-subtitle {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background: rgba(227, 6, 19, 0.1);
+    color: var(--mix-red);
+}
+
+.modal-body {
+    padding: 16px 24px;
+    overflow-y: auto;
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.legal-badge-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.legal-badge-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: var(--radius-full);
+    background: rgba(5, 150, 105, 0.1);
+    color: var(--green-accent);
+    border: 1px solid rgba(5, 150, 105, 0.25);
+}
+
+.legal-badge-pill.danger {
+    background: rgba(227, 6, 19, 0.08);
+    color: var(--mix-red);
+    border-color: rgba(227, 6, 19, 0.25);
+}
+
+.legal-badge-pill.law {
+    background: rgba(0, 45, 114, 0.08);
+    color: var(--mix-navy);
+    border-color: rgba(0, 45, 114, 0.2);
+}
+
+.modal-text-content h4 {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--mix-navy);
+    margin: 10px 0 2px 0;
+}
+
+.modal-text-content p {
+    margin-bottom: 6px;
+}
+
+.legal-contact-card {
+    margin-top: 16px;
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid rgba(0, 45, 114, 0.14);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.legal-contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.legal-contact-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.legal-contact-email {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--mix-red);
+    font-family: var(--font-mono);
+}
+
+.btn-legal-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--mix-navy);
+    color: #ffffff;
+    padding: 9px 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 45, 114, 0.25);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-legal-contact:hover {
+    background: var(--mix-navy-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 45, 114, 0.35);
+}
+
+.modal-footer {
+    padding: 14px 24px;
+    border-top: 1px solid var(--border-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8fafc;
+    gap: 12px;
+}
+
+.modal-footer-copy {
+    font-size: 0.74rem;
+    color: var(--text-muted);
 }
 
 /* Drag Overlay */
